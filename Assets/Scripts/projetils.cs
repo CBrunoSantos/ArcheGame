@@ -8,6 +8,8 @@ public class projetils : MonoBehaviour
     public int dano;
     public float tempoDeVida;
     public float distancia;
+
+    public float speed;
     void Start()
     {
         Invoke("DestruirProjetil", tempoDeVida);
@@ -16,7 +18,9 @@ public class projetils : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-                RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.forward, distancia);
+                // RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.forward, distancia);
+
+                transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         // if(hitInfo.collider != null){
         //     if(hitInfo.collider.CompareTag("Inimigo")){
