@@ -5,10 +5,9 @@ using UnityEngine;
 public class projetils : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int dano;
     public float tempoDeVida;
     public float distancia;
-
+    public Rigidbody2D rb_arrow;
     public float speed;
     void Start()
     {
@@ -16,25 +15,17 @@ public class projetils : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-                // RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.forward, distancia);
-
-                transform.Translate(Vector3.right * Time.deltaTime * speed);
-
-        // if(hitInfo.collider != null){
-        //     if(hitInfo.collider.CompareTag("Inimigo")){
-        //         hitInfo.collider.GetComponent<EnemyFollow>().TakeDamage(dano);
-        //     } else if (hitInfo.collider.CompareTag("InimigoPatrulha")){
-        //         hitInfo.collider.GetComponent<SystemRonda>().TakeDamage(dano);
-        //     } else if (hitInfo.collider.CompareTag("InimigoWall")){
-        //         hitInfo.collider.GetComponent<Enemyshot>().TakeDamage(dano);
-        //     }
-        //     DestruirProjetil();
-        // }
+    void Update(){
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
 
         void DestruirProjetil(){
         Destroy(gameObject);
+    }
+
+            void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.layer == 3){
+            Debug.Log("tocou no chao");
+        }
     }
 }
