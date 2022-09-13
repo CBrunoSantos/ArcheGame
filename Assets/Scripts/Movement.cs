@@ -9,10 +9,15 @@ public class Movement : MonoBehaviour
 
     public float velPlayer;
     public Rigidbody2D rb;
-    float health = 1f;
+    public float health = 1f;
     private float toque = .01f;
+    // public float valor = 0;
+    public static Movement instance;
+    
 
-    private void Start(){}
+    void Start(){
+        instance = this;
+    }
 
     void Update(){
 
@@ -29,17 +34,21 @@ public class Movement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision){
             if(collision.gameObject.tag == "Inimigo"){
                 Invoke("DanoBasico", toque);
-            } else if(collision.gameObject.tag == "Life"){
-                Invoke("vida", toque);
-            }
+            } 
+            // else if(collision.gameObject.tag == "Life"){
+            //     Invoke("vida", toque);
+            // }
         }
 
-    void vida(){
-        if(health != health){
-            health += .50f;
+    //tirar tudo que n for movimentação daqui e fazer itens consumiveis em outro script
+    public void vida(){
+        float vida = 1f;
+        if(vida != vida){
+            vida += .50f;
         }
         // health++;
-        healthBar.SetSize(health); 
+        Debug.Log("eu vou surtar se n der certo");
+        healthBar.SetSize(vida); 
     }
 
     void DanoBasico(){
