@@ -28,14 +28,26 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision){
             if(collision.gameObject.tag == "Inimigo"){
-                Invoke("tocou", toque);
+                Invoke("DanoBasico", toque);
+            } else if(collision.gameObject.tag == "Life"){
+                Invoke("vida", toque);
             }
         }
-    void tocou(){
+
+    void vida(){
+        if(health != health){
+            health += .50f;
+        }
+        // health++;
+        healthBar.SetSize(health); 
+    }
+
+    void DanoBasico(){
             // Debug.Log("tocou no player");
-            health -= .05f;
+            health -= .5f;
             healthBar.SetSize(health); 
                 if(health<=0){
+                    GameController.instance.ShowGameOver();
                     Destroy(gameObject, 0f);
                 }
             }

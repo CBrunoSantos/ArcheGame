@@ -22,10 +22,10 @@ public class Enemy : MonoBehaviour
             if(collision.gameObject.tag == "Player"){
                 Destroy(gameObject, 0f);
             }else if(collision.gameObject.tag == "alvo"){
-            Invoke("tocou", 0f);
+            Invoke("DanoTiro", 0f);
         }
     }
-    void tocou(){
+    void DanoTiro(){
             health -= .5f;
             healthBar.SetSize(health); 
                 if(health<=0){

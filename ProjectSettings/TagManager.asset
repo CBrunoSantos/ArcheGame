@@ -8,6 +8,7 @@ TagManager:
   - Arrow
   - wall
   - alvo
+  - Life
   layers:
   - Default
   - TransparentFX
