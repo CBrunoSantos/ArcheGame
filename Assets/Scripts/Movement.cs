@@ -53,7 +53,7 @@ public class Movement : MonoBehaviour
 
     void DanoBasico(){
             // Debug.Log("tocou no player");
-            health -= .5f;
+            health -= .05f;
             healthBar.SetSize(health); 
                 if(health<=0){
                     GameController.instance.ShowGameOver();
