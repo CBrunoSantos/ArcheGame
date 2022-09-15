@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float velEnemy;
     private Transform m_player;
     float health = 1f;
+    private int Points;
 
     void Start(){
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -29,6 +30,9 @@ public class Enemy : MonoBehaviour
             health -= .5f;
             healthBar.SetSize(health); 
                 if(health<=0){
+                    Points = GameController.instance.totalPoints++;
+                    GameController.instance.UpdatePointText();
+                    Debug.Log(Points);
                     Destroy(gameObject, 0f);
                 }
             }

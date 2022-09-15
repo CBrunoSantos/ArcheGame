@@ -25,10 +25,10 @@ public class Teste : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.tag == "wall"){
-            Debug.Log("parede");
+            // Debug.Log("parede");
             Destroy(gameObject);
         }else if(collision.gameObject.tag == "Inimigo"){
-            Debug.Log("tocou no inimigo");
+            // Debug.Log("tocou no inimigo");
             Destroy(gameObject);
         }
     }

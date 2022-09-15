@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
             vida += .50f;
         }
         // health++;
-        Debug.Log("eu vou surtar se n der certo");
+        // Debug.Log("eu vou surtar se n der certo");
         healthBar.SetSize(vida); 
     }
 
