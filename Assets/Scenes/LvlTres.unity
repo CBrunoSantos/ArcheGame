@@ -1766,6 +1766,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3131178938707187242, guid: fe9a48251336d514f85c0cb74646a558, type: 3}
+      propertyPath: health
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131178938707187242, guid: fe9a48251336d514f85c0cb74646a558, type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1084373761}
@@ -1776,6 +1780,10 @@ PrefabInstance:
     - target: {fileID: 3131178938707187245, guid: fe9a48251336d514f85c0cb74646a558, type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3131178938707187245, guid: fe9a48251336d514f85c0cb74646a558, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9a48251336d514f85c0cb74646a558, type: 3}

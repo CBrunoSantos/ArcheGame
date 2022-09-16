@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     private float toque = .01f;
     // public float valor = 0;
     public static Movement instance;
+    public bool morto = false;
     
 
     void Start(){
@@ -53,13 +54,20 @@ public class Movement : MonoBehaviour
 
     void DanoBasico(){
             // Debug.Log("tocou no player");
-            health -= .05f;
+            health -= .5f;
             healthBar.SetSize(health); 
                 if(health<=0){
                     GameController.instance.ShowGameOver();
-                    Destroy(gameObject, 0f);
+                    Invoke("morte", 0f);
                 }
-            }
+    }
+
+    private void morte(){
+        // rb.bodyType = RigidbodyType2D.Static;
+        morto = true;
+        rb.gravityScale = 500f;
+        Debug.Log(morto);
+    }
 
 
 }
