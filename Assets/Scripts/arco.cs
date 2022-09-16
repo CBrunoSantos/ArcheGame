@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class arco : MonoBehaviour
 {
-    // Start is called before the first frame update
 
-        public GameObject projetil;
-
+    public static arco instance;
+    public GameObject projetil;
     // public float velocidadeProjetil;
-
-    //     private float tempoUltimoTiro;
-
+    // private float tempoUltimoTiro;
     // private bool estaAtirando = false;
-
     public Transform spawnBullet;
-    void Start()
-    {
-    }
+    public int ammoAmount;
 
-    // Update is called once per frame
+    public int currentClip = 10, maxClipeSize = 10, currentAmmo, maxAmmoSize = 50;
+    void Start(){
+        instance = this;
+        // Debug.Log(maxAmmoSize);
+    }
     void Update()
     {
 
@@ -29,8 +27,31 @@ public class arco : MonoBehaviour
 
     void Atirar(){
         if (Input.GetButtonDown("Fire1")){
-            Transform shotPoint = spawnBullet;
-            Instantiate(projetil, shotPoint.position, transform.rotation);
+            if(currentClip> 0){
+                Transform shotPoint = spawnBullet;
+                Instantiate(projetil, shotPoint.position, transform.rotation);
+                currentClip--;
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.R)){
+            Reload();
+        }
+    }
+
+    public void Reload(){
+        int reloadAmount = maxClipeSize - currentClip;
+        reloadAmount = (currentAmmo - reloadAmount)>= 0 ? reloadAmount : currentAmmo;
+        currentClip += reloadAmount;
+        currentAmmo -= reloadAmount;
+    }
+
+    public void AddAmmo(){
+        currentAmmo += ammoAmount;
+        Debug.Log(currentAmmo);
+        if(currentAmmo > maxAmmoSize){
+            currentAmmo = maxAmmoSize;
+            
         }
     }
 

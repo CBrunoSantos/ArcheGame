@@ -14,7 +14,7 @@ public class OtherSpawn : MonoBehaviour
     {
         if(Time.time > nextSpawn){
             float testeT = Random.Range(-teste, teste);
-            // Debug.Log(testeT);
+            Debug.Log(testeT);
             nextSpawn = Time.time + spawnRate;
             Instantiate(enemy, transform.position*testeT, enemy.transform.rotation);
         }

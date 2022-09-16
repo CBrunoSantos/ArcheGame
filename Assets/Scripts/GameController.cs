@@ -9,10 +9,18 @@ public class GameController : MonoBehaviour
     public static GameController instance;
     public int totalPoints;
     public Text pointText;
+    public Text text;
+    public arco arco;
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        UpdateAmmoText();
+    }
+
+        private void Update()
+    {
+        UpdateAmmoText();
     }
 
     // Update is called once per frame
@@ -23,6 +31,10 @@ public class GameController : MonoBehaviour
     public void Restart(string lvlName){
         SceneManager.LoadScene(lvlName);
         // Debug.Log("teste");
+    }
+
+        public void UpdateAmmoText(){
+        text.text = $"{arco.currentClip}/{arco.maxClipeSize}|{arco.currentAmmo}/{arco.maxAmmoSize}";
     }
 
     public void UpdatePointText(){
