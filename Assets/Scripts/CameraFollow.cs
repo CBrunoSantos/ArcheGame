@@ -14,7 +14,15 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         Vector3 cameraFollowPosition = GetCameraFollowPositionFunc();
+
+        Vector3 cameraMoveDir = (cameraFollowPosition - transform.position).normalized;
+        float distance = Vector3.Distance(cameraFollowPosition,  transform.position);
+        float cameraMoveSpeed = 1f;
+
         cameraFollowPosition.z = transform.position.z;
+
+
+        // transform.position = transform.position + cameraMoveDir * distance * cameraMoveSpeed * Time.deltaTime;
         transform.position = cameraFollowPosition;
     }
 }

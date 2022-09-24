@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     // public float valor = 0;
     public static Movement instance;
     public bool morto = false;
+
     
 
     void Start(){
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
             transform.eulerAngles = new Vector3(0f,180f,0f);
         }
 
+        //shop por enquanto
         if(Input.GetKeyDown(KeyCode.Escape)){
             GameController.instance.ShowShop();
             Time.timeScale=0;
@@ -69,6 +71,7 @@ public class Movement : MonoBehaviour
 
     private void morte(){
         // rb.bodyType = RigidbodyType2D.Static;
+        Time.timeScale=0;
         morto = true;
         rb.gravityScale = 500f;
         Debug.Log(morto);

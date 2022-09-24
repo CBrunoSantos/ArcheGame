@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
+
+    public CameraFollow cameraFollow;
+    public Transform playerTransform;
     public GameObject gameOver;
     public static GameController instance;
     public int totalPoints;
@@ -21,9 +24,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraFollow.Setup(() => playerTransform.position);
         instance = this;
         UpdateAmmoText();
     }
+    
 
         private void Update()
     {
