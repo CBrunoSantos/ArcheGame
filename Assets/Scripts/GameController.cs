@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     public void ShowGameOver(){
         // gameOver.SetActive(true);
+        // Time.timeScale=0;
     }
 
     public void ShowShop(){
@@ -47,6 +48,7 @@ public class GameController : MonoBehaviour
     public void Restart(string lvlName){
         SceneManager.LoadScene(lvlName);
         // Debug.Log("teste");
+        // Time.timeScale=1;
     }
 
         public void UpdateAmmoText(){
