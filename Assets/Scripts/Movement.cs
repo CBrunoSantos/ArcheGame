@@ -30,6 +30,11 @@ public class Movement : MonoBehaviour
         if(Input.GetAxis("Horizontal")<0f){
             transform.eulerAngles = new Vector3(0f,180f,0f);
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            GameController.instance.ShowShop();
+            Time.timeScale=0;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision){

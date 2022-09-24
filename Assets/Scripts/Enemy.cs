@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Transform m_player;
     float health = 1f;
     private int Points;
+    private int Coin;
 
     void Start(){
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -31,7 +32,9 @@ public class Enemy : MonoBehaviour
             healthBar.SetSize(health); 
                 if(health<=0){
                     Points = GameController.instance.totalPoints++;
+                    Coin = GameController.instance.totalCoins+=10;
                     GameController.instance.UpdatePointText();
+                    GameController.instance.UpdateCoinText();
                     Debug.Log(Points);
                     Destroy(gameObject, 0f);
                 }

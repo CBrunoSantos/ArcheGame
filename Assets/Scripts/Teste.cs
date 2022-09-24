@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Teste : MonoBehaviour
 {
+    public static Teste instance;
     public float tempoDeVida;
     public float distancia;
     public Rigidbody2D rbAlvo;
+    public int velTiro;
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         Invoke("DestruirProjetil", tempoDeVida);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Time.deltaTime * 10);
+        transform.Translate(Vector3.right * Time.deltaTime *10);
     }
 
     void DestruirProjetil(){

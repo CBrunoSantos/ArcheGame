@@ -8,9 +8,16 @@ public class GameController : MonoBehaviour
     public GameObject gameOver;
     public static GameController instance;
     public int totalPoints;
+    public int totalCoins;
     public Text pointText;
+    public Text coinText;
     public Text text;
     public arco arco;
+
+    private int Coin;
+
+    public GameObject Shop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +32,16 @@ public class GameController : MonoBehaviour
 
     // Update is called once per frame
     public void ShowGameOver(){
-        gameOver.SetActive(true);
+        // gameOver.SetActive(true);
+    }
+
+    public void ShowShop(){
+        Shop.SetActive(true);
+    }
+
+        public void ShowOffShop(){
+        Shop.SetActive(false);
+        Time.timeScale=1;
     }
 
     public void Restart(string lvlName){
@@ -39,5 +55,29 @@ public class GameController : MonoBehaviour
 
     public void UpdatePointText(){
         pointText.text = totalPoints.ToString();
+    }
+
+    public void UpdateCoinText(){
+        coinText.text = totalCoins.ToString();
+    }
+
+    public void UpdateVel(){
+        // Coin = GameController.instance.totalCoins;
+        // if(Coin >= 0){
+
+        //     totalCoins = -10;
+        // }
+            Movement.instance.velPlayer+=1;
+            Debug.Log("movimento"+Movement.instance.velPlayer);
+    }
+
+        public void UpdateDano(){
+        // Coin = GameController.instance.totalCoins;
+        // if(Coin >= 0){
+
+        //     totalCoins = -10;
+        // }
+            Teste.instance.velTiro+=1;
+            Debug.Log("tiro"+Teste.instance.velTiro);
     }
 }
