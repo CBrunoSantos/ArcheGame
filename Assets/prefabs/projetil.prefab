@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 644133245474003119}
   - component: {fileID: 644133245474003104}
-  - component: {fileID: 3301504247094192509}
   - component: {fileID: -2420126647451293196}
-  - component: {fileID: -231386601339247449}
+  - component: {fileID: 7499111773026556586}
   m_Layer: 0
   m_Name: projetil
   m_TagString: Arrow
@@ -85,25 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3301504247094192509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 644133245474003105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 262ec08f4c656004a8b683c09658b72b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tempoDeVida: 1
-  distancia: 10
-  rb_arrow: {fileID: -2420126647451293196}
-  speed: 10
-  layerInimigo:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!50 &-2420126647451293196
 Rigidbody2D:
   serializedVersion: 4
@@ -112,7 +92,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644133245474003105}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -125,29 +105,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-231386601339247449
-BoxCollider2D:
+--- !u!114 &7499111773026556586
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644133245474003105}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0036991313, y: 0.005654445}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.11661057, y: 0.034044284}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dd8b2148fafab46afb5ef87cc496dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb_arrow: {fileID: -2420126647451293196}
+  speed: 3

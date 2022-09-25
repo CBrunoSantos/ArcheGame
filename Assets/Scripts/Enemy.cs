@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    public static Enemy instance;
     [SerializeField] private HealthBar healthBar;
     public Rigidbody2D rbEnemy;
     public float velEnemy;
@@ -14,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     void Start(){
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        instance = this;
     }
 
     void Update(){
