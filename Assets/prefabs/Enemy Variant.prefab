@@ -23,6 +23,26 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 4.48
       objectReference: {fileID: 0}
+    - target: {fileID: 1692329388801707929, guid: 7fb693b09eef46c4682645361876ddb3, type: 3}
+      propertyPath: spawnTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692329388801707929, guid: 7fb693b09eef46c4682645361876ddb3, type: 3}
+      propertyPath: spawndelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692329388801707929, guid: 7fb693b09eef46c4682645361876ddb3, type: 3}
+      propertyPath: SpawrItens.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692329388801707929, guid: 7fb693b09eef46c4682645361876ddb3, type: 3}
+      propertyPath: SpawrItens.Array.data[0]
+      value: 
+      objectReference: {fileID: 9061451740630089363, guid: a76aca207430ef845bbcd79722e0aa89, type: 3}
+    - target: {fileID: 1692329388801707929, guid: 7fb693b09eef46c4682645361876ddb3, type: 3}
+      propertyPath: SpawrItens.Array.data[1]
+      value: 
+      objectReference: {fileID: 8657956764090039626, guid: b03a15f8c4836c743b8f3f14c25069d5, type: 3}
     - target: {fileID: 3921942420873081545, guid: 7fb693b09eef46c4682645361876ddb3, type: 3}
       propertyPath: m_RootOrder
       value: 0

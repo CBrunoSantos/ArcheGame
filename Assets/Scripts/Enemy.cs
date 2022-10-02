@@ -14,9 +14,20 @@ public class Enemy : MonoBehaviour
     private int Points;
     private int Coin;
 
+    public GameObject[] SpawrItens;
+    int random;
+    public float spawnTime;
+    public float spawndelay;
+
     void Start(){
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         instance = this;
+        
+    }
+
+    void SpawnRandom(){
+        random = Random.Range(0, SpawrItens.Length);
+        Instantiate(SpawrItens[random], transform.position, transform.rotation);
     }
 
     void Update(){
@@ -38,6 +49,7 @@ public class Enemy : MonoBehaviour
                     Coin = GameController.instance.totalCoins+=10;
                     GameController.instance.UpdatePointText();
                     GameController.instance.UpdateCoinText();
+                    InvokeRepeating("SpawnRandom", spawnTime, spawndelay);
                     Debug.Log(Points);
                     Destroy(gameObject, 0f);
                 }

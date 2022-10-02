@@ -48,7 +48,7 @@ public class arco : MonoBehaviour
 
     public void AddAmmo(){
         currentAmmo += ammoAmount;
-        Debug.Log(currentAmmo);
+        //Debug.Log(currentAmmo);
         if(currentAmmo > maxAmmoSize){
             currentAmmo = maxAmmoSize;
             
