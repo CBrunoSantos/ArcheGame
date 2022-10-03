@@ -1,28 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+[System.Serializable]
+
+public class Wave{
+    public string waveName;
+    public int noOfEnemies;
+    public GameObject[] typeOfEnemies;
+    public float spwanInterval;
+}
 
 public class OtherSpawn : MonoBehaviour
 {
-    public float spawnRate;
-    public GameObject enemy;
-    private float nextSpawn = 0f;
-    public float teste;
+    public Wave[] waves;
 
+    public Transform[] spawnPoints;
+    public Animator animator;
+    public Text waveName;
 
-    void Update()
-    {
-        if(Time.time > nextSpawn){
-            float testeT = Random.Range(-teste, teste);
-            Debug.Log(testeT);
-            nextSpawn = Time.time + spawnRate;
-            Instantiate(enemy, transform.position*testeT, enemy.transform.rotation);
-        }
+    private Wave currentWave;
+    private int currentWaveNumber;
 
-        if(Movement.instance.morto == true){
-            spawnRate = 10000000000000;
-            // Destroy(enemy, 0f);
-            // Debug.Log("ta mortinho");
-        }
+    private float nextSpawnTime;
+
+    private bool canSpawn = true;
+    private bool canAnimate = false;
+
+    private void Update(){
+        currentWave = waves[currentWaveNumber];
+        SpawnWave();
+        GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Inimigo");
+        // GameObject totalEnemies = GameObject.FindGameObjectWithTag("Enemy")[0];
+        if(totalEnemies.Length == 0){
+            // SpwanNextWave();
+            if(currentWaveNumber+1 != waves.Length){
+                if(canAnimate){
+                    waveName.text = waves[currentWaveNumber + 1].waveName;
+                    animator.SetTrigger("WaveComplete");
+                    canAnimate = false;
+                }
+            }else {
+                Debug.Log("acabou");
+            }
+        } 
     }
+
+    void SpwanNextWave(){
+        currentWaveNumber++;
+        canSpawn = true;
+    }
+
+    void SpawnWave(){
+        if(canSpawn && nextSpawnTime<Time.time){
+            GameObject randomEnemy = currentWave.typeOfEnemies[Random.Range(0, currentWave.typeOfEnemies.Length)];
+            Transform randomPoint = spawnPoints[Random.Range(0,spawnPoints.Length)];
+            Instantiate(randomEnemy, randomPoint.position, Quaternion.identity);
+            currentWave.noOfEnemies--;
+            nextSpawnTime = Time.time + currentWave.spwanInterval;
+            if(currentWave.noOfEnemies == 0){
+                canSpawn = false;
+                canAnimate = true;
+            }
+        }
+        
+    }
+
 }

@@ -15,4 +15,11 @@ public class BulletEnemy : MonoBehaviour
         rb_arrow.velocity = new Vector2(moveDir.x, moveDir.y);
         Destroy(this.gameObject, 2);
     }
+
+                void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag == "Player"){
+            Debug.Log("ai iaiaiaiai");
+            Destroy(gameObject);
+        }
+    }
 }

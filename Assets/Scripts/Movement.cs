@@ -22,15 +22,15 @@ public class Movement : MonoBehaviour
     }
 
     void Update(){
-
+Mirar();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0.0f);
         rb.velocity = new Vector2(movement.x * velPlayer , movement.y * velPlayer);
-        if(Input.GetAxis("Horizontal")>0f){
-            transform.eulerAngles = new Vector3(0f,0f,0f);
-        }
-        if(Input.GetAxis("Horizontal")<0f){
-            transform.eulerAngles = new Vector3(0f,180f,0f);
-        }
+        // if(Input.GetAxis("Horizontal")>0f){
+        //     transform.eulerAngles = new Vector3(0f,0f,0f);
+        // }
+        // if(Input.GetAxis("Horizontal")<0f){
+        //     transform.eulerAngles = new Vector3(0f,180f,0f);
+        // }
 
         //shop por enquanto
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -77,5 +77,15 @@ public class Movement : MonoBehaviour
         Debug.Log(morto);
     }
 
+    void Mirar(){
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+
+        Vector2 offset = new Vector2(mousePos.x - screenPoint.x, mousePos.y - screenPoint.y);
+
+        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0,0, angle);
+    }
 
 }

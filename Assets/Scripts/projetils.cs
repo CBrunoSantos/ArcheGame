@@ -24,8 +24,9 @@ public class projetils : MonoBehaviour
     }
 
             void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.layer == 3){
-            // Debug.Log("tocou no chao");
+        if(collision.gameObject.tag == "Player"){
+            Debug.Log("ai iaiaiaiai");
+            Destroy(gameObject);
         }
     }
 }
