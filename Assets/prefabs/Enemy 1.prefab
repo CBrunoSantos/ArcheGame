@@ -120,8 +120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 9129335042758138755}
+  expBar: {fileID: 0}
   rbEnemy: {fileID: 2067217465180207483}
   velEnemy: 2
+  SpawrItens: []
+  spawnTime: 0
+  spawndelay: 0
 --- !u!61 &1763140565
 BoxCollider2D:
   m_ObjectHideFlags: 0

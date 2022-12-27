@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
                     GameController.instance.UpdatePointText();
                     GameController.instance.UpdateCoinText();
                     InvokeRepeating("SpawnRandom", spawnTime, spawndelay);
-                    Debug.Log(Points);
+                    Debug.Log(Coin);
                     Destroy(gameObject, 0f);
                 }
             }

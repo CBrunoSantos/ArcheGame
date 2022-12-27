@@ -52,9 +52,10 @@
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\EnemyShot.cs" />
+     <Compile Include="Assets\Scripts\LevelGeneration.cs" />
      <Compile Include="Assets\Scripts\AmmoPickup.cs" />
      <Compile Include="Assets\Scripts\projetils.cs" />
-     <Compile Include="Assets\Scripts\LevelGeneration.cs" />
+     <Compile Include="Assets\Scripts\ExpBar.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

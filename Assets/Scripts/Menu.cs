@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
     }
 
     public void Jogar(){
-        SceneManager.LoadScene(cena);
+        SceneManager.LoadScene("lvlCinco");
     }
     public void comoJogar(){
         SceneManager.LoadScene("ComoJogar");
