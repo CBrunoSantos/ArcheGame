@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     }
 
     void Update(){
-        Mirar();
+        // Mirar();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0.0f);
         rb.velocity = new Vector2(movement.x * velPlayer , movement.y * velPlayer);
         if(Input.GetAxis("Horizontal")>0f){

@@ -37,8 +37,8 @@ public class GameController : MonoBehaviour
 
     // Update is called once per frame
     public void ShowGameOver(){
-        // gameOver.SetActive(true);
-        // Time.timeScale=0;
+        gameOver.SetActive(true);
+        Time.timeScale=0;
     }
 
     public void ShowShop(){
