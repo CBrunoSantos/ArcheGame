@@ -22,16 +22,14 @@ public class GameController : MonoBehaviour
     public GameObject Shop;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         cameraFollow.Setup(() => playerTransform.position);
         instance = this;
         UpdateAmmoText();
     }
     
 
-        private void Update()
-    {
+    private void Update(){
         UpdateAmmoText();
     }
 
@@ -39,10 +37,12 @@ public class GameController : MonoBehaviour
     public void ShowGameOver(){
         gameOver.SetActive(true);
         Time.timeScale=0;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ShowShop(){
         Shop.SetActive(true);
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
         public void ShowOffShop(){
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
         // Time.timeScale=1;
     }
 
-        public void UpdateAmmoText(){
+    public void UpdateAmmoText(){
         text.text = $"{arco.currentClip}/{arco.maxClipeSize}|{arco.currentAmmo}/{arco.maxAmmoSize}";
     }
 
@@ -69,22 +69,25 @@ public class GameController : MonoBehaviour
     }
 
     public void UpdateVel(){
-        // Coin = GameController.instance.totalCoins;
-        // if(Coin >= 0){
-
-        //     totalCoins = -10;
-        // }
+        Coin-=10;
+        totalCoins-=10;
+        if(totalCoins<=0){
+            Debug.Log("cabou o dinheiro corno");
+        }
+        UpdateCoinText();
             Movement.instance.velPlayer+=1;
             Debug.Log("movimento"+Movement.instance.velPlayer);
     }
 
-        public void UpdateDano(){
-        // Coin = GameController.instance.totalCoins;
-        // if(Coin >= 0){
-
-        //     totalCoins = -10;
-        // }
+    public void UpdateDano(){
+        Coin-=10;
+        totalCoins-=10;
+        if(totalCoins<=0){
+            Debug.Log("cabou o dinheiro corno");
+        }
+        UpdateCoinText();
             Teste.instance.velTiro+=1;
-            Debug.Log("tiro"+Teste.instance.velTiro);
+            Debug.Log(Coin);
+            // Debug.Log("tiro"+Teste.instance.velTiro);
     }
 }
